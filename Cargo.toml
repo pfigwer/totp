@@ -1,0 +1,15 @@
+[package]
+name = "totp"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cfg-if = "1.0.0"
+clap = { version = "3.2.5", features = ["derive"] }
+confy = "0.4.0"
+exitcode = "1.1.2"
+google-authenticator = "0.3.0"
+serde = "1.0.137"
+serde_derive = "1.0.137"
