@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This Rust application was created to safe few clicks when generating time-based one-time passwords 
+This Rust application was created to save few clicks when generating time-based one-time passwords 
 using Google Authenticator.
 
 ## Usage
