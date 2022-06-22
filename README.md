@@ -10,7 +10,7 @@ using Google Authenticator.
 First you need to initialize your configuration file.
 
 ```shell
-.\totp.exe config append --key your_key --secret your_secret
+./totp config append --key your_key --secret your_secret
 ```
 
 Configuration file will be saved in:
