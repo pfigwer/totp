@@ -24,6 +24,6 @@ Configuration file will be saved in:
 Now you can generate you one time password using:
 
 ```shell
-.\totp.exe generate
+./totp generate
 your_key: 787412
 ```
