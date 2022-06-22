@@ -1,9 +1,10 @@
 use std::process;
 use clap::Parser;
 use confy::ConfyError;
-use crate::authenticator::get_code;
+use crate::authenticator::google_authenticator::Authenticator;
+
 use crate::cli::args::{Cli, Commands, ConfigCommands};
-use crate::config::{Configuration, load_configuration, save_configuration};
+use crate::configuration::configuration::{Configuration, load_configuration, save_configuration};
 
 pub fn handle_cli_commands() {
     let args = Cli::parse();
@@ -26,13 +27,14 @@ pub fn handle_cli_commands() {
 }
 
 fn handle_generate_code(key: Option<String>) {
+    let authenticator = Authenticator::default();
     match load_configuration() {
         Ok(config) => {
             match key {
                 Some(key) => {
                     match config.secrets.get(&key) {
                         Some(secret) => {
-                            match get_code(secret) {
+                            match authenticator.generator.get_code(secret) {
                                 Ok(code) => println!("{}: {}", key, code),
                                 Err(error) => println!("Failed to generate code: {}", error)
                             }
@@ -45,7 +47,7 @@ fn handle_generate_code(key: Option<String>) {
                 }
                 None => {
                     for (key, secret) in &config.secrets {
-                        match get_code(secret) {
+                        match authenticator.generator.get_code(secret) {
                             Ok(code) => println!("{}: {}", key, code),
                             Err(error) => println!("Failed to generate code: {}", error)
                         }

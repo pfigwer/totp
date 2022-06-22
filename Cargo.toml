@@ -13,3 +13,6 @@ exitcode = "1.1.2"
 google-authenticator = "0.3.0"
 serde = "1.0.137"
 serde_derive = "1.0.137"
+
+[dev-dependencies]
+mockall = "0.11.1"

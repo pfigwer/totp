@@ -1,7 +1,7 @@
 use crate::cli::commands::handle_cli_commands;
 
 mod authenticator;
-mod config;
+mod configuration;
 mod cli;
 
 fn main() {
